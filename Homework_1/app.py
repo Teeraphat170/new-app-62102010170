@@ -30,12 +30,12 @@ def home():
     return render_template("home.html", weather=weather,news=news)
 
 def CovidNews(): #ดึงข่าว
-    url = "http://newsapi.org/v2/everything?q=tesla&from=2021-01-02&sortBy=publishedAt&apiKey=bfb557e31ff6498c9421d0983cb91950"
+    url = "http://newsapi.org/v2/everything?q=covid&from=2021-01-02&sortBy=publishedAt&apiKey=bfb557e31ff6498c9421d0983cb91950"
     data = urlopen(url).read()
     parsed = json.loads(data)
     news = []
     
-    for i in range(0,5): 
+    for i in range(0,6): 
         title = parsed['articles'][i]['title']
         description = parsed['articles'][i]['description']
         img = parsed['articles'][i]['urlToImage']

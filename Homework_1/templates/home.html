@@ -3,9 +3,9 @@
 {% block body %}
 <div class="mt">
   <div class="row">
-    <div class="col-md-5">
-      <div class="touch">
-        <div class="card">
+    <div class="col-md-6">
+      <br>
+      <div style="border:solid;">
           <br>
           <h5 class="text-center">สภาพอากาศวันนี้</h5>
           <div class="pl-5">
@@ -15,36 +15,32 @@
             <p>ความเร็วลม : {{weather.wind}}</p>
             <p>ความชื้น : {{weather.humidity}}</p>
             <p>ความกดอากาศ : {{weather.pressure}}</p>
+            
           </div>
-        </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="touch">
-        <div class="card">
-          <br>
+    <div class="col-md-6">
+          <br><br><br><br>
           <h5 class="text-center">ตรวจสอบสภาพอากาศของคุณ</h5>
           <div class="col-sm">
             <div class="form-outline">
               <form>
                 <input type="text" name="city" class="form-control" />
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">ค้นหา</button>
               </form>
               <br>
             </div>
           </div>
-        </div>
-      </div>
     </div>
-    <div class="col-md-12">
-      <div class="touch">
-        <div class="card text-left">
-          <div class="card-body">
+  <div class="col-md-12" >
+      <div class="touch" >
+        <div class="card text-left" style="border:solid;">
+          <div class="card-body" >
             <h5 class="text-center"> Covid-19 News </h5>
             <div class="row">
               {% for i in news %}
-              <div class="col-md-4 mt-2">
-                <div class="card">
+              <div class="col-md-6 mt-2" >
+                <div class="card" >
                   <img class="card-img-top" src="{{i.img}}" alt="Card image cap">
                   <div class="card-body">
                     <h5>{{i.title}}</h4>
