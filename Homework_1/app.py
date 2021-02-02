@@ -35,7 +35,7 @@ def CovidNews(): #ดึงข่าว
     parsed = json.loads(data)
     news = []
     
-    for i in range(0,6): 
+    for i in range(0,5): 
         title = parsed['articles'][i]['title']
         description = parsed['articles'][i]['description']
         img = parsed['articles'][i]['urlToImage']
@@ -43,7 +43,7 @@ def CovidNews(): #ดึงข่าว
         news.append({"title":title,"description":description,"link":link,"img":img})
         
     return news
-    
+
 #รับสภาพอากาศ
 def get_weather(city,API_KEY):
     city = convert_to_unicode(city)
