@@ -10,27 +10,13 @@ app = Flask(__name__)
 
 OPEN_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q={0}&units=metric&lang=th&&APPID={1}"
 
-OPEN_WEATHER_KEY = '99b45c40d36d608ad54c3b7ffa1c11aa'
+OPEN_WEATHER_KEY = '6074bf21cc3c5d1fdbc0cf39f526abc4'
 
-NEWS_URL = "http://newsapi.org/v2/everything?q={0}&from=2021-1-30&sortBy=publishedAt&apiKey={1}"
+NEWS_URL = "http://newsapi.org/v2/everything?q={0}&from=2021-01-02&sortBy=publishedAt&apiKey={1}"
 
-NEWS_KEY = "524f6394cc7744d4bba39ecbd765c268"
-
-#COVID_API_TH
-url = requests.get('https://covid19.th-stat.com/api/open/today')
-r = url.json()
-Confirmed = r['Confirmed']
-Recovered = r['Recovered']
-Hospitalized = r['Hospitalized']
-Deaths = r['Deaths']
-result = {
-    'Confirmed' : Confirmed,
-    'Recovered' : Recovered,
-    'Hospitalized' : Hospitalized,
-    'Deaths' : Deaths
+NEWS_KEY = "bfb557e31ff6498c9421d0983cb91950"
 
 
-}
 
 @app.route("/")
 def home():
@@ -41,10 +27,10 @@ def home():
     weather = get_weather(city, OPEN_WEATHER_KEY)
     news = CovidNews()
 
-    return render_template("home.html", weather=weather,result=result,news=news)
+    return render_template("home.html", weather=weather,news=news)
 
 def CovidNews(): #ดึงข่าว
-    url = "http://newsapi.org/v2/everything?q=covid&from=2021-01-01&sortBy=publishedAt&apiKey=524f6394cc7744d4bba39ecbd765c268"
+    url = "http://newsapi.org/v2/everything?q=tesla&from=2021-01-02&sortBy=publishedAt&apiKey=bfb557e31ff6498c9421d0983cb91950"
     data = urlopen(url).read()
     parsed = json.loads(data)
     news = []
